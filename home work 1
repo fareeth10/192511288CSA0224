@@ -1,0 +1,85 @@
+//Average of N numbers
+
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    float num, sum = 0;
+
+    scanf("%d", &n);
+
+    for(i = 1; i <= n; i++) {
+        scanf("%f", &num);
+        sum += num;
+    }
+
+    printf("Average = %.2f", sum / n);
+
+    return 0;
+}
+
+//Categorize height
+
+#include <stdio.h>
+
+int main() {
+    float height;
+    scanf("%f", &height);
+
+    if(height > 170)
+        printf("Tall");
+    else if(height < 150)
+        printf("Dwarf");
+    else
+        printf("Average");
+
+    return 0;
+}
+
+
+//Sum of squares
+
+#include <stdio.h>
+
+int main() {
+    int n, i, sum = 0;
+    scanf("%d", &n);
+
+    for(i = 1; i <= n; i++)
+        sum += i * i;
+
+    printf("Sum = %d", sum);
+
+    return 0;
+}
+
+//sum of multiple of x
+
+#include <stdio.h>
+
+int main() {
+    int x, limit, i, sum = 0;
+    scanf("%d %d", &x, &limit);
+
+    for(i = x; i <= limit; i += x)
+        sum += i;
+
+    printf("Sum = %d", sum);
+
+    return 0;
+}
+
+//print numbers from M to N skipping K
+
+#include <stdio.h>
+
+int main() {
+    int m, n, k, i;
+    scanf("%d %d %d", &m, &n, &k);
+
+    for(i = m; i <= n; i += (k + 1))
+        printf("%d ", i);
+
+    return 0;
+}
+
