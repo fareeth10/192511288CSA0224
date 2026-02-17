@@ -1,0 +1,113 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+//1. Happy Number 
+int sumSq(int n) {
+    int sum = 0;
+    while(n > 0) {
+        int d = n % 10;
+        sum += d * d;
+        n /= 10;
+    }
+    return sum;
+}
+
+void happy() {
+    int n, slow, fast;
+    scanf("%d", &n);
+    slow = fast = n;
+
+    do {
+        slow = sumSq(slow);
+        fast = sumSq(sumSq(fast));
+    } while(slow != fast);
+
+    printf(slow == 1 ? "Happy Number\n" : "Not a Happy Number\n");
+}
+
+
+/*2. Automorphic Number*/
+void automorphic() {
+    int n, sq;
+    scanf("%d", &n);
+    sq = n * n;
+
+    int temp = n;
+    while(temp > 0) {
+        if(temp % 10 != sq % 10) {
+            printf("Not an Automorphic Number\n");
+            return;
+        }
+        temp /= 10;
+        sq /= 10;
+    }
+
+    printf("Automorphic Number\n");
+}
+
+
+/*3. Harshad Number */
+void harshad() {
+    int n, temp, sum = 0;
+    scanf("%d", &n);
+
+    temp = n;
+    while(temp > 0) {
+        sum += temp % 10;
+        temp /= 10;
+    }
+
+    if(n % sum == 0)
+        printf("Harshad Number\n");
+    else
+        printf("Not a Harshad Number\n");
+}
+
+
+//4. Magic Number ==================
+void magic() {
+    int n, temp, sum;
+    scanf("%d", &n);
+
+    temp = n;
+    while(temp > 9) {
+        sum = 0;
+        while(temp > 0) {
+            sum += temp % 10;
+            temp /= 10;
+        }
+        temp = sum;
+    }
+
+    if(temp == 1)
+        printf("Magic Number\n");
+    else
+        printf("Not a Magic Number\n");
+}
+
+
+/*5. Strong Number*/
+int fact(int n) {
+    int f = 1;
+    for(int i = 1; i <= n; i++)
+        f *= i;
+    return f;
+}
+
+void strong() {
+    int n, temp, sum = 0;
+    scanf("%d", &n);
+
+    temp = n;
+    while(temp > 0) {
+        sum += fact(temp % 10);
+        temp /= 10;
+    }
+
+    if(sum == n)
+        printf("Strong Number\n");
+    else
+        printf("Not a Strong Number\n");
+}
+
+
